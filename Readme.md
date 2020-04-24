@@ -30,8 +30,3 @@
     -   description
 -   (GET)http://127.0.0.1:5000/book/"< book id >"
 
-
-
-
-### heroku deployment url info
-- https://flask-bookstore-miniproject.herokuapp.com/
