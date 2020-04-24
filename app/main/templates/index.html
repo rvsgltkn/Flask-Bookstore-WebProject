@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    {% for book in books %}
+    <div style="display: flex; justify-content: left; height:100px">
+        <div align="center" style="padding-right:10px; vertical-align:middle; height:100%; width:100px;">
+            <p><a href="{{ url_for('api.book_book_edit', book_id=book.id) }}">Edit</a></p>
+            <p><a href="{{ url_for('api.book_book_delete', book_id=book.id) }}" onclick="javascript: return confirm('Are you sure?')">Delete</a></p>
+
+
+
+        </div>
+        <div align="center" style="padding-right:10px;height:100%; width:150px;">
+            <img style="height:100px;" src="{{ book.image_url }}">
+        </div>
+        <div style="height:100%">
+            <p>Book Name : {{ book.name }}:</p>
+            <p>Book Author :{{book.author}}</p>
+            <p>Book Description :{{book.description}}</p>
+        </div>
+    </div>
+<hr>
+    {% endfor %}
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous{% if not prev_url %} disabled{% endif %}">
+                <a href="{{ prev_url or '#' }}">
+                    <span aria-hidden="true">&larr;</span> Newer books
+                </a>
+            </li>
+            <li class="next{% if not next_url %} disabled{% endif %}">
+                <a href="{{ next_url or '#' }}">
+                    Older books <span aria-hidden="true">&rarr;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
