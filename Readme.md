@@ -34,4 +34,4 @@
 
 
 ### heroku deployment url info
-- https://flask-project-heroku.herokuapp.com/
+- https://flask-bookstore-miniproject.herokuapp.com/
